@@ -1,0 +1,185 @@
+{
+  "ru_base": {
+    "meaning": "infinitive"
+  },
+  "ru_adj_m_nom": {
+    "meaning": "nominative masculine"
+  },
+  "ru_adj_m_gen": {
+    "meaning": "genitive masculine"
+  },
+  "ru_adj_m_dat": {
+    "meaning": "dative masculine"
+  },
+  "ru_adj_m_acc": {
+    "meaning": "accusative masculine"
+  },
+  "ru_adj_m_inst": {
+    "meaning": "instrumental masculine"
+  },
+  "ru_adj_m_prep": {
+    "meaning": "prepositional masculine"
+  },
+  "ru_adj_f_nom": {
+    "meaning": "nominative feminine"
+  },
+  "ru_adj_f_gen": {
+    "meaning": "genitive feminine"
+  },
+  "ru_adj_f_dat": {
+    "meaning": "dative feminine"
+  },
+  "ru_adj_f_acc": {
+    "meaning": "accusative feminine"
+  },
+  "ru_adj_f_inst": {
+    "meaning": "instrumental feminine"
+  },
+  "ru_adj_f_prep": {
+    "meaning": "prepositional feminine"
+  },
+  "ru_adj_n_nom": {
+    "meaning": "nominative neuter"
+  },
+  "ru_adj_n_gen": {
+    "meaning": "genitive neuter"
+  },
+  "ru_adj_n_dat": {
+    "meaning": "dative neuter"
+  },
+  "ru_adj_n_acc": {
+    "meaning": "accusative neuter"
+  },
+  "ru_adj_n_inst": {
+    "meaning": "instrumental neuter"
+  },
+  "ru_adj_n_prep": {
+    "meaning": "prepositional neuter"
+  },
+  "ru_adj_pl_nom": {
+    "meaning": "nominative plural"
+  },
+  "ru_adj_pl_gen": {
+    "meaning": "genitive plural"
+  },
+  "ru_adj_pl_dat": {
+    "meaning": "dative plural"
+  },
+  "ru_adj_pl_acc": {
+    "meaning": "accusative plural"
+  },
+  "ru_adj_pl_inst": {
+    "meaning": "instrumental plural"
+  },
+  "ru_adj_pl_prep": {
+    "meaning": "prepositional plural"
+  },
+  "ru_adj_comparative": {
+    "meaning": "comparative"
+  },
+  "ru_adj_superlative": {
+    "meaning": "superlative"
+  },
+  "ru_verb_imperative_sg": {
+    "meaning": "singular imperative"
+  },
+  "ru_verb_imperative_pl": {
+    "meaning": "plural imperative"
+  },
+  "ru_verb_past_m": {
+    "meaning": "masculine past indicative"
+  },
+  "ru_verb_past_f": {
+    "meaning": "feminine past indicative"
+  },
+  "ru_verb_past_n": {
+    "meaning": "neuter past indicative"
+  },
+  "ru_verb_past_pl": {
+    "meaning": "plural past indicative"
+  },
+  "ru_verb_presfut_sg1": {
+    "meaning": "first-person singular present indicative"
+  },
+  "ru_verb_presfut_sg2": {
+    "meaning": "second-person singular present indicative"
+  },
+  "ru_verb_presfut_sg3": {
+    "meaning": "third-person singular present indicative"
+  },
+  "ru_verb_presfut_pl1": {
+    "meaning": "first-person plural present indicative"
+  },
+  "ru_verb_presfut_pl2": {
+    "meaning": "second-person plural present indicative"
+  },
+  "ru_verb_presfut_pl3": {
+    "meaning": "third-person plural present indicative"
+  },
+  "ru_verb_participle_active_past": {
+    "meaning": "past active participle"
+  },
+  "ru_verb_gerund_present": {
+    "meaning": "present adverbial participle"
+  },
+  "ru_verb_gerund_past": {
+    "meaning": "past adverbial participle"
+  },
+  "ru_verb_participle_passive_past": {
+    "meaning": "past passive participle"
+  },
+  "ru_verb_participle_active_present": {
+    "meaning": "present active participle"
+  },
+  "ru_noun_sg_nom": {
+    "meaning": "nominative singular"
+  },
+  "ru_noun_sg_gen": {
+    "meaning": "genitive singular"
+  },
+  "ru_noun_sg_dat": {
+    "meaning": "dative singular"
+  },
+  "ru_noun_sg_acc": {
+    "meaning": "accusative singular"
+  },
+  "ru_noun_sg_inst": {
+    "meaning": "instrumental singular"
+  },
+  "ru_noun_sg_prep": {
+    "meaning": "prepositional singular"
+  },
+  "ru_noun_pl_nom": {
+    "meaning": "nominative plural"
+  },
+  "ru_noun_pl_gen": {
+    "meaning": "genitive plural"
+  },
+  "ru_noun_pl_dat": {
+    "meaning": "dative plural"
+  },
+  "ru_noun_pl_acc": {
+    "meaning": "accusative plural"
+  },
+  "ru_noun_pl_inst": {
+    "meaning": "instrumental plural"
+  },
+  "ru_noun_pl_prep": {
+    "meaning": "prepositional plural"
+  },
+  "ru_verb_participle_passive_present": {
+    "meaning": "present passive participle"
+  },
+  "ru_adj_short_m": {
+    "meaning": "short masculine"
+  },
+  "ru_adj_short_f": {
+    "meaning": "short feminine"
+  },
+  "ru_adj_short_n": {
+    "meaning": "short neuter"
+  },
+  "ru_adj_short_pl": {
+    "meaning": "short plural"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "f": {
+    "meaning": "fem"
+  },
+  "m": {
+    "meaning": "masc"
+  },
+  "n": {
+    "meaning": "neut"
+  },
+  "": {
+    "meaning": ""
+  },
+  "pl": {
+    "meaning": "pl"
+  },
+  "b": {
+    "meaning": "masc-fem"
+  }
+}

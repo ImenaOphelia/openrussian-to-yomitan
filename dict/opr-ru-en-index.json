@@ -1,0 +1,15 @@
+{
+    "format": 3,
+    "revision": "2025.05.28",
+    "sequenced": true,
+    "author": "ImenaOphelia",
+    "url": "https://github.com/ImenaOphelia/openrussian-to-yomitan",
+    "description": "OpenRussian",
+    "attribution": "https://en.openrussian.org/",
+    "sourceLanguage": "ru",
+    "targetLanguage": "en",
+    "title": "opr-ru-en",
+    "isUpdatable": true,
+    "indexUrl": "https://github.com/ImenaOphelia/openrussian-to-yomitan/releases/latest/download/opr-ru-en-index.json",
+    "downloadUrl": "https://github.com/ImenaOphelia/openrussian-to-yomitan/releases/latest/download/opr-ru-en.zip"
+}
