@@ -13,5 +13,6 @@ chmod +x run.sh
 ./run.sh
 ```
 # Attribution
-`generate_dict` and `utils.py` were originally shared by @Holence in the [https://github.com/Holence/OpenRussian_MDict](OpenRussian_MDict) repo (CC-BY-SA 4.0).
-Entry layout was originally created by @StefanVukovic99 in the [https://github.com/yomidevs/kaikki-to-yomitan](kaikki-to-yomitan) repo.
+* `generate_dict` and `utils.py` were originally shared by @Holence in the [https://github.com/Holence/OpenRussian_MDict](OpenRussian_MDict) repo (CC-BY-SA 4.0).
+* Entry layout was originally created by @StefanVukovic99 in the [https://github.com/yomidevs/kaikki-to-yomitan](kaikki-to-yomitan) repo.
+* OpenRussian.org data is licensed under CC-BY-SA.
