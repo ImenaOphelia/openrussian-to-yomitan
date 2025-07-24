@@ -2,7 +2,7 @@
 Yomitan-compatible dictionaries from OpenRussian data.
 
 ## Instructions
-1. Download OpenRussian data from [https://app.togetherdb.com/db/fwoedz5fvtwvq03v/russian3]().
+1. Download OpenRussian data from [https://app.togetherdb.com/db/fwoedz5fvtwvq03v/russian3](here).
 2. Place the downloaded files in `russian3` folder.
 3. Create an `opr` folder in the `dict` folder.
 4. Run  the script: 

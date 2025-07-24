@@ -1,0 +1,13 @@
+{
+    "title":       "Зализняк",
+    "author":      "ImenaOphelia",
+    "sequenced":   false,
+    "format":      3,
+    "url":         "https://github.com/ImenaOphelia/openrussian-to-yomitan",
+    "isUpdatable": true,
+    "indexUrl":    "https://github.com/ImenaOphelia/openrussian-to-yomitan/releases/latest/download/zaliznyak-index.json",
+    "downloadUrl": "https://github.com/ImenaOphelia/openrussian-to-yomitan/releases/latest/download/zaliznyak.zip",
+    "description": "Грамматический словарь русского языка А. А. Зализняка",
+    "attribution": "© CC BY-NC, Анна Андреевна Зализняк",
+    "revision":    "2025.07.24"
+}
