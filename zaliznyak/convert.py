@@ -188,7 +188,7 @@ def process_entry(lemma_key, entry_dict):
         "freq",
         {
             "reading": reading,
-            "frequency": {"value": 1, "displayValue": display_value}
+            "frequency": {"value": 0, "displayValue": f"​{display_value}"} #zero-width space + built display value
         },
     ]
     logger.debug(
