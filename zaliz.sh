@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# DOES NOT WORK FOR SOME REASON
+
 set -euo pipefail
 
 cd zaliznyak
@@ -26,10 +28,10 @@ else
     mkdir ../dict/zaliz
 fi
 source .venv/bin/activate
-if [[ -f "term_bank_0.json" ]]; then
-    python3 ../utils/split_json.py term_bank_0.json ../dict/zaliz/ 1000
+if [[ -f "term_meta_bank_0.json" ]]; then
+    python3 split_json.py term_meta_bank_0.json ../dict/zaliz/ 1000
 else
-    python3 convert.py zaliz_1.yml zaliz_2.yml -o term_bank_0.json && python3 ../utils/split_json.py term_bank_0.json ../dict/zaliz/ 1000
+    python3 convert.py zaliz_1.yml zaliz_2.yml -o term_meta_bank_0.json && python3 split_json.py term_meta_bank_0.json ../dict/zaliz/ 1000
 fi
 
 echo "Copying files..."
