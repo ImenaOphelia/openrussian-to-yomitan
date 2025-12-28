@@ -16,4 +16,4 @@ chmod +x run.sh
 * `generate_dict` and `utils.py` were originally shared by @Holence in the [OpenRussian_MDict](https://github.com/Holence/OpenRussian_MDict) repo (CC-BY-SA 4.0).
 * Entry layout was originally created by @StefanVukovic99 in the [kaikki-to-yomitan](https://github.com/yomidevs/kaikki-to-yomitan) repo.
 * OpenRussian.org data is licensed under CC-BY-SA.
-* The YAML data for A. A. Zaliznyak's dictionary was originally shared by @link0ff in the [nlp-rus-zaliz](https://github.com/jurta/nlp-rus-zaliz) repo (GPL 3.0).
+* The data for A. A. Zaliznyak's dictionary was originally shared by @gramdict in the [zalizniak-2010](https://github.com/gramdict/zalizniak-2010) repo (CC BY-NC 4.0).

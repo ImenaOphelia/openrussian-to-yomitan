@@ -4,10 +4,15 @@ __pycache__/
 zaliznyak/term_bank_0.json
 zaliznyak/zaliz_1.yml
 zaliznyak/zaliz_2.yml
+zaliznyak/zaliznyak_index_only.json
+zaliznyak/zaliznyak_prefix_and_index.json
 term_bank_0.json
 zaliznyak-index.json
 zaliznyak.zip
+zaliznyak-prefix.zip
+zaliznyak-prefix-index.json
 opr-ru-en-index.json
 opr-ru-en.zip
 dict/opr/
 dict/zaliz/
+zaliznyak/dictionary
