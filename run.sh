@@ -2,25 +2,40 @@
 
 set -euo pipefail
 
+DIST_DIR="dict/opr"
+INDEX_FILE="$DIST_DIR/index.json"
+ZIP_NAME="opr-ru-en.zip"
+TODAY=$(date +"%Y.%m.%d")
+
+for cmd in python3 jq zip; do
+    if ! command -v "$cmd" &> /dev/null; then
+        echo "Error: $cmd is not installed." >&2
+        exit 1
+    fi
+done
+
 echo "Generating dictionary files..."
 python3 generate_dict.py
 
 echo "Processing term bank..."
 python3 term_bank.py
 
-python3 utils/split_json.py term_bank_0.json dict/opr 25000
+mkdir -p "$DIST_DIR"
+python3 utils/split_json.py term_bank_0.json "$DIST_DIR" 25000
 
-echo "Copying files..."
-cp dict/*.json dict/opr/
-rm dict/opr/zaliznyak-index.json
-cp dict/styles.css dict/opr/
+echo "Copying assets..."
+cp dict/*.json "$DIST_DIR/"
+cp dict/styles.css "$DIST_DIR/"
 
-mv dict/opr/opr-ru-en-index.json dict/opr/index.json
+rm -f "$DIST_DIR/zaliznyak-index.json"
+mv "$DIST_DIR/opr-ru-en-index.json" "$INDEX_FILE"
 
-today=$(date +"%Y.%m.%d")
-jq --arg date "$today" '.revision = $date' dict/opr/index.json > dict/opr/temp.json && mv dict/opr/temp.json dict/opr/index.json
+echo "Updating revision date..."
+jq --arg date "$TODAY" '.revision = $date' "$INDEX_FILE" > "${INDEX_FILE}.tmp" && mv "${INDEX_FILE}.tmp" "$INDEX_FILE"
 
 echo "Creating ZIP archive..."
-(cd dict/opr && zip -q -r ../../opr-ru-en.zip ./*)
+pushd "$DIST_DIR" > /dev/null
+zip -q -r "../../$ZIP_NAME" ./*
+popd > /dev/null
 
-echo "Operation complete: opr-ru-en.zip created"
+echo "Operation complete: $ZIP_NAME created"
