@@ -34,6 +34,9 @@ div[data-sc-content="example-sentence-a"] {
 div[data-sc-content="example-sentence-b"] {
     font-size: 0.8em;
 }
+span[data-sc-content="example-highlight"] {
+    color: lime;
+}
 details[data-sc-content^="details-entry"] {
     padding-left: 0;
 }
