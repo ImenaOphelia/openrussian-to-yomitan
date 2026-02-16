@@ -1,5 +1,6 @@
 output/
 russian3/
+openrussian_public/
 __pycache__/
 zaliznyak/term_bank_0.json
 zaliznyak/zaliz_1.yml
