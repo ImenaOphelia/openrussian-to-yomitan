@@ -4,8 +4,8 @@ Yomitan-compatible dictionaries from OpenRussian data.
 Additionally, a meta dictionary with A. A. Zaliznyak's classification for each word is shared here.
 
 ## Instructions
-1. Download OpenRussian data from [here](https://app.togetherdb.com/db/fwoedz5fvtwvq03v/russian3).
-2. Place the downloaded files in `russian3` folder.
+1. Download OpenRussian data from [here](https://app.togetherdb.com/db/fwoedz5fvtwvq03v/openrussian_public).
+2. Place the downloaded files in `openrussian_public` folder.
 3. Create an `opr` folder in the `dict` folder.
 4. Run  the script (`jq` and `zip` required): 
 ```bash
