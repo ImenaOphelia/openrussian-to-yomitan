@@ -14,6 +14,13 @@ for cmd in python3 jq zip; do
     fi
 done
 
+if [ -z "$( ls -A 'openrussian_public' )" ]; then
+   echo "Downloading csv files..."
+   python3 get_csv.py
+else
+   echo "Skipping csv download."
+fi
+
 echo "Generating dictionary files..."
 python3 generate_dict.py
 
@@ -37,5 +44,7 @@ echo "Creating ZIP archive..."
 pushd "$DIST_DIR" > /dev/null
 zip -q -r "../../$ZIP_NAME" ./*
 popd > /dev/null
+
+rm -f oepnrussian_public/*.csv
 
 echo "Operation complete: $ZIP_NAME created"
