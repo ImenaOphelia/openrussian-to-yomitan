@@ -17,10 +17,6 @@ def split_large_json(input_file, output_folder, chunk_size):
 
         print(f"Total items in JSON file: {total_items}")
         print(f"With a chunk size of {chunk_size}, this will create approximately {num_chunks} files.")
-        proceed = input("Do you want to proceed? (y/n): ").strip().lower()
-        if proceed != 'y':
-            print("Operation canceled.")
-            return
 
         for i in range(0, total_items, chunk_size):
             chunk = data[i:i + chunk_size]
