@@ -45,6 +45,9 @@ jq --arg date "$TODAY" '.revision = $date' "$INDEX_FILE" > "${INDEX_FILE}.tmp" &
 
 echo "Creating ZIP archive..."
 pushd "$DIST_DIR" > /dev/null
+if [ ! -d "../../dist" ]; then
+    mkdir -p "../../dist"
+fi
 zip -q -r "../../dist/$ZIP_NAME" ./*
 cp "$INDEX_FILE" ../../dist/
 mv ../../dist/index.json ../../dist/opr-ru-en-index.json
