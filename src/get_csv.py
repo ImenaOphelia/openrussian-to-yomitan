@@ -17,8 +17,11 @@ def download(url: str, fname: str, chunk_size=1024):
             size = file.write(data)
             bar.update(size)
 
-if not os.path.exists("openrussian_public"):
-    os.makedirs("openrussian_public")
+base_dir = os.path.dirname(os.path.abspath(__file__))
+target_dir = os.path.join(base_dir, "..", "assets", "openrussian_public")
+
+if not os.path.exists(target_dir):
+    os.makedirs(target_dir)
 
 structure=requests.get("https://worker.togetherdb.com/connections/fwoedz5fvtwvq03v/databases/openrussian_public/structure").json()
 
@@ -34,7 +37,7 @@ for table_name in table_names:
     url="https://worker.togetherdb.com/exports/%s"%key
     print(url)
 
-    download(url, "openrussian_public/openrussian_public - %s.csv"%table_name)
+    download(url, f"{target_dir}/openrussian_public - %s.csv"%table_name)
     print()
 
     time.sleep(1)

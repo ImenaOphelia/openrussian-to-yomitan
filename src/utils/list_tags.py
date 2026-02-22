@@ -51,19 +51,19 @@ def main():
     
     types, aspects, genders, forms, noun_props = extract_unique_properties(data)
     
-    with open('props/types.json', 'w', encoding='utf-8') as f:
+    with open('assets/props/types.json', 'w', encoding='utf-8') as f:
         json.dump(types, f, ensure_ascii=False, indent=2)
     
-    with open('props/aspects.json', 'w', encoding='utf-8') as f:
+    with open('assets/props/aspects.json', 'w', encoding='utf-8') as f:
         json.dump(aspects, f, ensure_ascii=False, indent=2)
     
-    with open('props/genders.json', 'w', encoding='utf-8') as f:
+    with open('assets/props/genders.json', 'w', encoding='utf-8') as f:
         json.dump(genders, f, ensure_ascii=False, indent=2)
     
-    with open('props/forms.json', 'w', encoding='utf-8') as f:
+    with open('assets/props/forms.json', 'w', encoding='utf-8') as f:
         json.dump(forms, f, ensure_ascii=False, indent=2)
     
-    with open('props/noun_properties.json', 'w', encoding='utf-8') as f:
+    with open('assets/props/noun_properties.json', 'w', encoding='utf-8') as f:
         json.dump(noun_props, f, ensure_ascii=False, indent=2)
     
     print("Extraction complete.")

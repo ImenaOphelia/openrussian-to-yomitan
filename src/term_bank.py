@@ -4,6 +4,8 @@ import re
 import os
 import urllib.parse
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+target_dir = os.path.join(base_dir, "..", "assets")
 
 def remove_diacritics(text):
     if not text:
@@ -111,11 +113,11 @@ def build_glosses(translations, all_forms):
 
 def generate_term_bank(input_file):
     prop_files = {
-        "types": "props/types.json",
-        "aspects": "props/aspects.json",
-        "genders": "props/genders.json",
-        "forms": "props/forms.json",
-        "noun_props": "props/noun_properties.json",
+        "types": f"{target_dir}/props/types.json",
+        "aspects": f"{target_dir}/props/aspects.json",
+        "genders": f"{target_dir}/props/genders.json",
+        "forms": f"{target_dir}/props/forms.json",
+        "noun_props": f"{target_dir}/props/noun_properties.json",
     }
 
     props = {}
@@ -243,11 +245,11 @@ def generate_term_bank(input_file):
                     ]
                 )
 
-    with open("term_bank_0.json", "w", encoding="utf-8") as f:
+    with open(f"{target_dir}/term_bank_0.json", "w", encoding="utf-8") as f:
         json.dump(term_bank, f, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
-    input_file = "output/dict.json"
+    input_file = f"{target_dir}/dict.json"
     if os.path.exists(input_file):
         generate_term_bank(input_file)

@@ -1,7 +1,7 @@
 # %%
 import os
 import pandas as pd
-from utils import *
+from utils.utils import *
 import json
 import numpy as np
 from tqdm import tqdm
@@ -11,9 +11,11 @@ import random
 def show_na_column(df):
     print("NaN:", [i for i in list(df.isnull().sum().items()) if i[1]])
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+target_dir = os.path.join(base_dir, "..", "assets")
 
 # %%
-words = pd.read_csv("openrussian_public/openrussian_public - words.csv", usecols=["id", "bare", "accented", "derived_from_word_id", "rank", "disabled", "usage_en", "type"])
+words = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - words.csv", usecols=["id", "bare", "accented", "derived_from_word_id", "rank", "disabled", "usage_en", "type"])
 
 # %%
 # 有些词竟然还有多余的空格……
@@ -84,7 +86,7 @@ del other_words
 del words
 
 # %%
-words_forms_csv = pd.read_csv("openrussian_public/openrussian_public - words_forms.csv", usecols=["word_id", "form_type", "form"])
+words_forms_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - words_forms.csv", usecols=["word_id", "form_type", "form"])
 words_forms_csv["form"] = words_forms_csv["form"].fillna("")
 
 # 有些词竟然还有多余的空格……
@@ -131,7 +133,7 @@ for i, row in tqdm(words_forms_csv.iterrows(), total=len(words_forms_csv)):
 del words_forms_csv
 
 # %%
-words_rels_csv = pd.read_csv("openrussian_public/openrussian_public - words_rels.csv", usecols=["word_id", "rel_word_id", "relation"])
+words_rels_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - words_rels.csv", usecols=["word_id", "rel_word_id", "relation"])
 dtype = {"word_id": "int", "rel_word_id": "int", "relation": "string"}
 words_rels_csv = words_rels_csv.astype(dtype)
 words_rels_csv.info()
@@ -165,7 +167,7 @@ for i, row in tqdm(words_rels_csv.iterrows(), total=len(words_rels_csv)):
 del words_rels_csv
 
 # %%
-nouns_csv = pd.read_csv("openrussian_public/openrussian_public - nouns.csv")
+nouns_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - nouns.csv")
 # both->b
 nouns_csv["gender"] = nouns_csv["gender"].map({"f": "f", "m": "m", "n": "n", "pl": "pl", "both": "b"})
 nouns_csv["gender"] = nouns_csv["gender"].fillna("")
@@ -184,7 +186,7 @@ nouns_csv_dict = nouns_csv.set_index("word_id").to_dict("index")
 del nouns_csv
 
 # %%
-verbs_csv = pd.read_csv("openrussian_public/openrussian_public - verbs.csv", usecols=["word_id", "aspect", "partner"])
+verbs_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - verbs.csv", usecols=["word_id", "aspect", "partner"])
 # imperfective->i, perfective->p, both->b
 verbs_csv["aspect"] = verbs_csv["aspect"].map({"imperfective": "i", "perfective": "p", "both": "b"})
 verbs_csv["aspect"] = verbs_csv["aspect"].fillna("")
@@ -206,14 +208,14 @@ verbs_csv_dict = verbs_csv.set_index("word_id").to_dict("index")
 del verbs_csv
 
 # %%
-expressions_words_csv = pd.read_csv("openrussian_public/openrussian_public - expressions_words.csv", usecols=["expression_id", "referenced_word_id"])
+expressions_words_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - expressions_words.csv", usecols=["expression_id", "referenced_word_id"])
 dtype = {"expression_id": "int", "referenced_word_id": "int"}
 expressions_words_csv = expressions_words_csv.astype(dtype)
 expressions_words_csv.info()
 show_na_column(expressions_words_csv)
 
 # %%
-translations_csv = pd.read_csv("openrussian_public/openrussian_public - translations.csv")
+translations_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - translations.csv")
 # 只留英语的翻译
 translations_csv = translations_csv[translations_csv["lang"] == "en"]
 translations_csv = translations_csv.drop(columns=["id", "lang", "position"])
@@ -244,7 +246,7 @@ for i, row in tqdm(translations_csv.iterrows(), total=len(translations_csv)):
 del translations_csv
 
 # %%
-sentences_translations_csv = pd.read_csv("openrussian_public/openrussian_public - sentences_translations.csv", usecols=["sentence_id", "tl_en"])
+sentences_translations_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - sentences_translations.csv", usecols=["sentence_id", "tl_en"])
 sentences_translations_csv = sentences_translations_csv[sentences_translations_csv["tl_en"].isna() == False]
 dtype = {"sentence_id": "int", "tl_en": "string"}
 sentences_translations_csv = sentences_translations_csv.astype(dtype)
@@ -254,7 +256,7 @@ show_na_column(sentences_translations_csv)
 sentences_translations_csv_dict = sentences_translations_csv.set_index("sentence_id").to_dict("index")
 
 # %%
-sentences_csv = pd.read_csv("openrussian_public/openrussian_public - sentences.csv", usecols=["id", "ru"])
+sentences_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - sentences.csv", usecols=["id", "ru"])
 dtype = {"id": "int", "ru": "string"}
 sentences_csv = sentences_csv.astype(dtype)
 # 剔除没有翻译的
@@ -266,7 +268,7 @@ show_na_column(sentences_csv)
 sentences_csv_dict = sentences_csv.set_index("id").to_dict("index")
 
 # %%
-sentences_words_csv = pd.read_csv("openrussian_public/openrussian_public - sentences_words.csv", usecols=["sentence_id", "word_id"])
+sentences_words_csv = pd.read_csv(f"{target_dir}/openrussian_public/openrussian_public - sentences_words.csv", usecols=["sentence_id", "word_id"])
 dtype = {"sentence_id": "int", "word_id": "int"}
 sentences_words_csv = sentences_words_csv.astype(dtype)
 # 剔除没有翻译的
@@ -458,8 +460,8 @@ class CustomJSONizer(json.JSONEncoder):
             else super().default(obj)
 
 
-if not os.path.exists("output"):
-    os.makedirs("output")
+if not os.path.exists(f"{target_dir}"):
+    os.makedirs(f"{target_dir}")
 
-with open("output/dict.json", "w", encoding="utf-8") as f:
+with open(f"{target_dir}/dict.json", "w", encoding="utf-8") as f:
     json.dump(word_dict, f, ensure_ascii=False, cls=CustomJSONizer)

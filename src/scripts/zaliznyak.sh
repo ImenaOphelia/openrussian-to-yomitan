@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-ROOT_DIR="$(pwd)"
-SRC_DIR="zaliznyak"
-DIST_DIR="$ROOT_DIR/dict/zaliz"
+ROOT_DIR="../.."
+SRC_DIR="../zaliznyak"
+DIST_DIR="$ROOT_DIR/assets/zaliz"
 TODAY=$(date +"%Y.%m.%d")
 
 for cmd in python3 jq zip; do
@@ -22,19 +22,19 @@ fi
 pushd "$SRC_DIR" > /dev/null
 
 echo "Checking for dictionary source..."
-if [[ ! -d "dictionary" ]]; then
+if [[ ! -d "../../assets/dictionary" ]]; then
     sh download.sh
 fi
 
 echo "Converting JSON..."
-if [[ ! -f "zaliznyak_index_only.json" ]]; then
+if [[ ! -f "../zaliznyak/zaliznyak_index_only.json" ]]; then
     python3 convert.py
 fi
 
 echo "Splitting JSON files..."
 mkdir -p "$DIST_DIR/index" "$DIST_DIR/prefix"
-python3 split_json.py zaliznyak_index_only.json "$DIST_DIR/index" 1000
-python3 split_json.py zaliznyak_prefix_and_index.json "$DIST_DIR/prefix" 1000
+python3 split_json.py ../zaliznyak/zaliznyak_index_only.json "$DIST_DIR/index" 1000
+python3 split_json.py ../zaliznyak/zaliznyak_prefix_and_index.json "$DIST_DIR/prefix" 1000
 
 popd > /dev/null
 
@@ -42,10 +42,10 @@ for type in "index" "prefix"; do
     TARGET_DIR="$DIST_DIR/$type"
     
     if [[ "$type" == "prefix" ]]; then
-        SRC_INDEX_FILE="$ROOT_DIR/dict/zaliznyak-prefix-index.json"
+        SRC_INDEX_FILE="$ROOT_DIR/dist/zaliznyak-prefix-index.json"
         ZIP_NAME="zaliznyak-prefix.zip"
     else
-        SRC_INDEX_FILE="$ROOT_DIR/dict/zaliznyak-index.json"
+        SRC_INDEX_FILE="$ROOT_DIR/dist/zaliznyak-index.json"
         ZIP_NAME="zaliznyak.zip"
     fi
 
