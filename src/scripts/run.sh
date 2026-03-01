@@ -14,6 +14,10 @@ for cmd in python3 jq zip; do
     fi
 done
 
+if [ ! -d "../../assets/openrussian_public" ]; then
+    mkdir -p "../../assets/openrussian_public"
+fi
+
 if [ -z "$( ls -A '../../assets/openrussian_public' )" ]; then
    echo "Downloading csv files..."
    python3 ../get_csv.py
@@ -22,13 +26,16 @@ else
 fi
 
 echo "Generating dictionary files..."
-python3 ../generate_dict.py
+gendict=$(realpath ../generate_dict.py)
+python3 ${gendict}
 
 echo "Processing term bank..."
-python3 ../term_bank.py
+termbank=$(realpath ../term_bank.py)
+python3 ${termbank}
 
 mkdir -p "$DIST_DIR"
-python3 ../utils/split_json.py ../../assets/term_bank_0.json "$DIST_DIR" 25000
+split=$(realpath ../utils/split_json.py)
+python3 ${split} ../../assets/term_bank_0.json "$DIST_DIR" 25000
 
 echo "Copying assets..."
 cp ../../assets/*.json "$DIST_DIR/"
